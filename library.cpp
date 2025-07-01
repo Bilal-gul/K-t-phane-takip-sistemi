@@ -17,7 +17,7 @@ class book{
 	void returnBook();
 };
 
-class members : public book{
+class members{
 	public: 
 	string memberName;
 	string memberSurname;
@@ -38,7 +38,7 @@ void book::addBook(){
 	cout << "Yazar isimini giriniz: ";
 	cin >> books.authorName;
 	
-	cout << "Kitabýn ISBN numarasýný giriniz: ";
+	cout << "KitabÃ½n ISBN numarasÃ½nÃ½ giriniz: ";
 	cin >> books.ISBN;
 	
 	books.status = false;
@@ -51,7 +51,7 @@ void members::memberRegistration(){
 	
 	members member; 
 	
-	cout << "Ýsminizi giriniz: ";
+	cout << "Ãsminizi giriniz: ";
 	cin >> member.memberName;
 	
 	cout << "Soyismnizi giriniz: ";
@@ -69,13 +69,13 @@ void book::borrowBook(){
 	
 	bookList();
 	
-	cout << "Ýsminiz: ";
+	cout << "Ãsminiz: ";
 	cin >> memberName;
 	
 	cout << "Soyisminiz: ";
 	cin >> memberSurname;
 	
-	cout << "Ödünç almak istediðiniz kitabýn ismini giriniz: ";
+	cout << "Ã–dÃ¼nÃ§ almak istediÃ°iniz kitabÃ½n ismini giriniz: ";
 	cin >> bookName;
 	
 	bool isFind = false;
@@ -85,10 +85,10 @@ void book::borrowBook(){
 		if(memberInformation[y].memberName == memberName && memberInformation[y].memberSurname == memberSurname){
 			
 				
-	 for(int j = 0;bookInformation.size();j++){
+	 for(int j = 0;j<bookInformation.size();j++){
 		
 		if(bookInformation[j].status == true){
-			cout << "Bu kitap ödünç alýnmýþ!" << endl;
+			cout << "Bu kitap Ã¶dÃ¼nÃ§ alÃ½nmÃ½Ã¾!" << endl;
 			cout << endl;
 			break;
 		}
@@ -98,7 +98,7 @@ void book::borrowBook(){
 			isFind = true;
 			bookInformation[j].status = true;
 			
-			cout << "Kitabýnýzý Ödünç alabilirsiniz.." << endl;
+			cout << "KitabÃ½nÃ½zÃ½ Ã–dÃ¼nÃ§ alabilirsiniz.." << endl;
 			cout << endl;
 			
 			break;
@@ -110,7 +110,7 @@ void book::borrowBook(){
 			
 			break;
 		}else{
-     	cout << "Aradýðýnýz isim ve soyisimde üye bulunamadý!" << endl;
+     	cout << "AradÃ½Ã°Ã½nÃ½z isim ve soyisimde Ã¼ye bulunamadÃ½!" << endl;
 		cout << endl;
 		break;
 	}
@@ -124,13 +124,13 @@ void book::borrowBook(){
 
 	
 		if(isFind == false)
-		cout << "Aradýðýnýz isimde kitap bulunamadý!!";
+		cout << "AradÃ½Ã°Ã½nÃ½z isimde kitap bulunamadÃ½!!";
 	
 }
 
 void book::bookList(){
 	
-	cout << "------ KÝTAP LÝSTESÝ ------" << endl;
+	cout << "------ KÃTAP LÃSTESÃ ------" << endl;
 	cout << endl;
 	
 	for(int i = 0;i<bookInformation.size();i++){
@@ -138,7 +138,7 @@ void book::bookList(){
 		cout << "Yazar ismi: " << bookInformation[i].authorName << endl;
 		cout << "ISBN no: " << bookInformation[i].ISBN << endl;
 		if(	bookInformation[i].status == true)
-		cout << "Durum: Mevcut deðil" << endl;
+		cout << "Durum: Mevcut deÃ°il" << endl;
 		else
 		cout << "Durum: Mevcut" << endl;
 		cout << endl;
@@ -151,12 +151,12 @@ void book::bookList(){
 void members::memberList(){
 	
 	cout << endl;
-	cout << "------ ÜYE LÝSTESÝ ------" << endl;
+	cout << "------ ÃœYE LÃSTESÃ ------" << endl;
 	cout << endl;
 	
 	for(int k = 0;k<memberInformation.size();k++){
-		cout << "Üye ismi: " << memberInformation[k].memberName << endl;
-		cout << "Üye soyismi: " << memberInformation[k].memberSurname << endl;
+		cout << "Ãœye ismi: " << memberInformation[k].memberName << endl;
+		cout << "Ãœye soyismi: " << memberInformation[k].memberSurname << endl;
 		cout << endl;
 	}
 	
@@ -169,7 +169,7 @@ void book::returnBook(){
 	
 	string bookName;
 	
-	cout << "Ýade edeceðiniz kitabýn ismi: ";
+	cout << "Ãade edeceÃ°iniz kitabÃ½n ismi: ";
 	cin >> bookName;
 	
 	bool find = false;
@@ -180,7 +180,7 @@ void book::returnBook(){
 		bookInformation[x].status = false;
 		find = true;
 		
-		cout << "Kitabýnýz Ýade edildi.." << endl;
+		cout << "KitabÃ½nÃ½z Ãade edildi.." << endl;
 		cout << endl;
 	 }
 	 
@@ -188,7 +188,7 @@ void book::returnBook(){
 	}
 	
 	if(find==false){
-	cout << "Aradýðýnýz isimde kitap bulunamadý!" << endl;
+	cout << "AradÃ½Ã°Ã½nÃ½z isimde kitap bulunamadÃ½!" << endl;
 	cout << endl;
 }
 }
@@ -199,12 +199,12 @@ void console(){
 cout << endl;	
 cout << "---------------------" << endl;	
 cout <<	"1- Kitap Ekle" << endl;
-cout <<	"2- Üye Kaydet" << endl;
-cout <<	"3- Kitap Ödünç Al" << endl;
-cout <<	"4- Kitap Ýade Et" << endl;
-cout <<	"5- Kitaplarý Listele" << endl;
-cout <<	"6- Üyeleri Listele" << endl;
-cout <<	"7- Çýkýþ" << endl;
+cout <<	"2- Ãœye Kaydet" << endl;
+cout <<	"3- Kitap Ã–dÃ¼nÃ§ Al" << endl;
+cout <<	"4- Kitap Ãade Et" << endl;
+cout <<	"5- KitaplarÃ½ Listele" << endl;
+cout <<	"6- Ãœyeleri Listele" << endl;
+cout <<	"7- Ã‡Ã½kÃ½Ã¾" << endl;
 cout << "---------------------" << endl;
 cout << endl;
 	
@@ -228,7 +228,7 @@ do{
 	
 console();
 
-cout << "Yapmak istediðiniz iþlemi seçiniz: ";
+cout << "Yapmak istediÃ°iniz iÃ¾lemi seÃ§iniz: ";
 cin >> selection;
 
 
@@ -259,12 +259,12 @@ switch(selection){
 	break;
 		
 	case 7:
-		cout << "Çýkýþ yapýlýyor..." << endl;
+		cout << "Ã‡Ã½kÃ½Ã¾ yapÃ½lÃ½yor..." << endl;
 		cout << endl;
 	break;
 		
     default: 
-    cout << "Yanlýþ seçim yaptýnýz!" << endl;
+    cout << "YanlÃ½Ã¾ seÃ§im yaptÃ½nÃ½z!" << endl;
     cout << endl;
 }
 cout << endl;
